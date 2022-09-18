@@ -69,6 +69,14 @@ def main():
           total += price_without_tax
           format_price_with_tax = "{:.2f}".format(price_without_tax)
           print(f"{item.product_name}: {format_price_with_tax}")
+        else:
+          tax = tax_round(basic_sales_tax(item.price))
+          sales_taxes += tax
+          # print(tax)
+          price_with_tax = item.price + tax
+          format_price_with_tax = "{:.2f}".format(price_with_tax)
+          total += price_with_tax
+          print(f"{item.product_name}: {format_price_with_tax}")
     elif short_code == 'ex':
       print("Bye .........")
       break
