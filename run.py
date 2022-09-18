@@ -64,6 +64,11 @@ def main():
           total += price_with_tax
           format_price_with_tax = "{:.2f}".format(price_with_tax)
           print(f"{item.product_name}: {format_price_with_tax}")
+        elif check_basic_tax_exempt(item.product_name) and item.product_name.find('imported'):
+          price_without_tax = item.price
+          total += price_without_tax
+          format_price_with_tax = "{:.2f}".format(price_without_tax)
+          print(f"{item.product_name}: {format_price_with_tax}")
     elif short_code == 'ex':
       print("Bye .........")
       break
