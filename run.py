@@ -16,6 +16,12 @@ def tax_round(tax):
     rnd = 20  # How many times 0.05 fits in 1.00? 20.
     return math.ceil(round(tax, 2) * rnd) / rnd
 
+def basic_sales_tax(price):
+  return price* .1
+  
+def import_duty(price):
+  return price* .05
+  
 def main():
   pass
 
