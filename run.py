@@ -34,7 +34,7 @@ def main():
   print('Enter sale item')
   print('Check data.txt for the right format of input')
   while True:
-    print("use these short code: ei- enter sale item, di-display item, ex-exit")
+    print("use these short code: ei- enter sale item, dr-display receipt, ex-exit")
     short_code = input().lower()
     if short_code == 'ei':
       print("sale item")
@@ -42,7 +42,7 @@ def main():
       product_details = input()
       product_details_array=product_details.split(' at')
       save_product(create_product(product_details_array[0].strip(),float(product_details_array[1].strip())))
-    elif short_code == 'di':
+    elif short_code == 'dr':
       print("Here is a your reciept")
       sales_taxes = 0
       total = 0
