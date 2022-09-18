@@ -1,6 +1,8 @@
 import math
 from sales import Sales
 
+basic_tax_exceptions = ['book','food','medical', 'chocolates', 'chocolate','pills' ]
+
 def create_product(product, price):
   product = Sales(product,price)
   return product
@@ -21,7 +23,11 @@ def basic_sales_tax(price):
   
 def import_duty(price):
   return price* .05
-  
+
+def check_basic_tax_exempt(product):
+  array_product_name = product.split(' ')
+  return any(item in basic_tax_exceptions for item in array_product_name)
+
 def main():
   pass
 
