@@ -33,6 +33,16 @@ def main():
   print("\n")
   print('Enter sale item')
   print('Check data.txt for the right format of input')
+  while True:
+    print("use these short code: ei- enter sale item, di-display item, ex-exit")
+    short_code = input().lower()
+    if short_code == 'ei':
+      print("sale item")
+      print("="*20)
+      product_details = input()
+      product_details_array=product_details.split(' at')
+      save_product(create_product(product_details_array[0].strip(),float(product_details_array[1].strip())))
+      
 if __name__ == '__main__':
   
   main()
