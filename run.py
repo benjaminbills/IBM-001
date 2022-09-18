@@ -43,7 +43,20 @@ def main():
       product_details_array=product_details.split(' at')
       save_product(create_product(product_details_array[0].strip(),float(product_details_array[1].strip())))
     elif short_code == 'di':
-      pass
+      print("Here is a your reciept")
+      sales_taxes = 0
+      total = 0
+      for item in display_sales():
+      # sales_taxes += item.price
+        if item.product_name.find('imported') != -1 and check_basic_tax_exempt(item.product_name):
+          tax = tax_round(import_duty(item.price))
+          sales_taxes += tax
+          # print(tax)
+          price_with_tax = item.price + tax
+          format_price_with_tax = "{:.2f}".format(price_with_tax)
+          total += price_with_tax
+          print(f"{item.product_name}: {format_price_with_tax}")
+        
     elif short_code == 'ex':
       print("Bye .........")
       break
