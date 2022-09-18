@@ -1,6 +1,6 @@
 import unittest
 from sales import Sales
-from run import check_basic_tax_exempt, tax_round, basic_sales_tax
+from run import check_basic_tax_exempt, tax_round, basic_sales_tax, import_duty
 
 class TestSales(unittest.TestCase):
   def setUp(self):
@@ -32,6 +32,15 @@ class TestSales(unittest.TestCase):
     format_sales_tax = "{:.2f}".format(sales_tax)
     self.assertEqual(float(format_price_with_tax) , 16.49)
     self.assertEqual(float(format_sales_tax), 1.50)
+  
+  def test_tax_import_product(self):
+    product_details_new = Sales('1 imported bottle of perfume',47.50)
+    sales_tax = tax_round(import_duty(product_details_new.price)+basic_sales_tax(product_details_new.price))
+    calculate_product_price_with_tax = product_details_new.price + sales_tax
+    format_price_with_tax = "{:.2f}".format(calculate_product_price_with_tax)
+    format_sales_tax = "{:.2f}".format(sales_tax)
+    self.assertEqual(float(format_price_with_tax) , 54.65)
+    self.assertEqual(float(format_sales_tax), 7.15)
 
 if __name__ == '__main__':
     unittest.main()
