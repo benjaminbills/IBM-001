@@ -77,6 +77,10 @@ def main():
           format_price_with_tax = "{:.2f}".format(price_with_tax)
           total += price_with_tax
           print(f"{item.product_name}: {format_price_with_tax}")
+      format_sales_tax = "{:.2f}".format(sales_taxes)
+      format_total = "{:.2f}".format(total)
+      print(f"Sales Taxes: {format_sales_tax}")
+      print(f"Total: {format_total}")
     elif short_code == 'ex':
       print("Bye .........")
       break
