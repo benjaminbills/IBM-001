@@ -42,7 +42,13 @@ def main():
       product_details = input()
       product_details_array=product_details.split(' at')
       save_product(create_product(product_details_array[0].strip(),float(product_details_array[1].strip())))
-      
+    elif short_code == 'di':
+      pass
+    elif short_code == 'ex':
+      print("Bye .........")
+      break
+    else:
+      print("I really didn't get that. Please use the short codes")
 if __name__ == '__main__':
   
   main()
