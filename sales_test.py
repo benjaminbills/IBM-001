@@ -1,6 +1,6 @@
 import unittest
 from sales import Sales
-from run import check_basic_tax_exempt
+from run import check_basic_tax_exempt, tax_round, basic_sales_tax
 
 class TestSales(unittest.TestCase):
   def setUp(self):
@@ -23,6 +23,15 @@ class TestSales(unittest.TestCase):
     tax_exempt_item = Sales('1 chocolate bar', 0.85)
     check_exempt = check_basic_tax_exempt(tax_exempt_item.product_name)
     self.assertEqual(check_exempt,True)
+
+  def test_basic_sales_tax(self):
+    product_details_new = Sales('1 music CD',14.99)
+    sales_tax = tax_round(basic_sales_tax(product_details_new.price))
+    calculate_product_price_with_tax = product_details_new.price + sales_tax
+    format_price_with_tax = "{:.2f}".format(calculate_product_price_with_tax)
+    format_sales_tax = "{:.2f}".format(sales_tax)
+    self.assertEqual(float(format_price_with_tax) , 16.49)
+    self.assertEqual(float(format_sales_tax), 1.50)
 
 if __name__ == '__main__':
     unittest.main()
