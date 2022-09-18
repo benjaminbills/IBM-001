@@ -11,6 +11,11 @@ def save_product(sales):
 def display_sales():
   return Sales.display_sales()
 
+def tax_round(tax):
+    """ Rounding rule for sales taxes """
+    rnd = 20  # How many times 0.05 fits in 1.00? 20.
+    return math.ceil(round(tax, 2) * rnd) / rnd
+
 def main():
   pass
 
