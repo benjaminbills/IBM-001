@@ -29,8 +29,10 @@ def check_basic_tax_exempt(product):
   return any(item in basic_tax_exceptions for item in array_product_name)
 
 def main():
-  pass
-
+  print("Welcome to tax sales problem solution")
+  print("\n")
+  print('Enter sale item')
+  print('Check data.txt for the right format of input')
 if __name__ == '__main__':
-
-    main()
+  
+  main()
